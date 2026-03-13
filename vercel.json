@@ -1,0 +1,76 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+
+  "redirects": [
+    { "source": "/index.html",         "destination": "/",            "permanent": true },
+    { "source": "/features.html",      "destination": "/features",    "permanent": true },
+    { "source": "/settings.html",      "destination": "/settings",    "permanent": true },
+    { "source": "/padho_ott.html",     "destination": "/watch",       "permanent": true },
+    { "source": "/splash.html",        "destination": "/splash",      "permanent": true },
+
+    { "source": "/features/index.html","destination": "/features",    "permanent": true },
+    { "source": "/settings/index.html","destination": "/settings",    "permanent": true },
+    { "source": "/watch/index.html",   "destination": "/watch",       "permanent": true },
+    { "source": "/splash/index.html",  "destination": "/splash",      "permanent": true },
+
+    { "source": "/features/",          "destination": "/features",    "permanent": true },
+    { "source": "/settings/",          "destination": "/settings",    "permanent": true },
+    { "source": "/watch/",             "destination": "/watch",       "permanent": true },
+    { "source": "/splash/",            "destination": "/splash",      "permanent": true },
+
+    { "source": "/home",               "destination": "/",            "permanent": true },
+    { "source": "/main",               "destination": "/",            "permanent": true },
+    { "source": "/landing",            "destination": "/",            "permanent": true }
+  ],
+
+  "rewrites": [
+    { "source": "/",          "destination": "/index.html"            },
+    { "source": "/features",  "destination": "/features/index.html"   },
+    { "source": "/settings",  "destination": "/settings/index.html"   },
+    { "source": "/watch",     "destination": "/watch/index.html"      },
+    { "source": "/splash",    "destination": "/splash/index.html"     }
+  ],
+
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options",    "value": "nosniff"      },
+        { "key": "X-Frame-Options",           "value": "SAMEORIGIN"   },
+        { "key": "X-XSS-Protection",          "value": "1; mode=block"},
+        { "key": "Referrer-Policy",           "value": "strict-origin-when-cross-origin" }
+      ]
+    },
+    {
+      "source": "/",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=3600, stale-while-revalidate=86400" }
+      ]
+    },
+    {
+      "source": "/features",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=3600, stale-while-revalidate=86400" }
+      ]
+    },
+    {
+      "source": "/settings",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=3600, stale-while-revalidate=86400" }
+      ]
+    },
+    {
+      "source": "/watch",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=1800, stale-while-revalidate=3600" }
+      ]
+    },
+    {
+      "source": "/splash",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=86400" }
+      ]
+    }
+  ]
+}
